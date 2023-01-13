@@ -1,0 +1,54 @@
+import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
+public class GUI {
+
+    public GUI() {
+        JFrame frame = new JFrame();
+        frame.setSize(500,300);
+        JLabel label = new JLabel("Please select the CSV file you wish to scan.");
+
+        JButton fileButton = new JButton("Select file");
+        fileButton.addActionListener(e -> {
+           JFileChooser fileChooser = new JFileChooser("Choose File");
+           FileFilter filter = new FileNameExtensionFilter("CSV files", "csv");
+           int returnValue = fileChooser.showOpenDialog(fileButton);
+           if (returnValue == JFileChooser.APPROVE_OPTION) {
+               File selectedFile = fileChooser.getSelectedFile();
+               try {
+                   getResultMessage(selectedFile);
+               } catch (IOException ex) {
+                   //TODO Get a better error message
+                   ex.printStackTrace();
+               }
+           }
+        });
+
+        JPanel panel = new JPanel();
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setLayout(new GridLayout(0, 1));
+        panel.add(label);
+        panel.add(fileButton);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setTitle("TE Attendance");
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public void getResultMessage(File inputFile) throws IOException {
+        JFrame frame = new JFrame("Attendance Results");
+        frame.setSize(500, 200);
+//        String resultMessage = String.valueOf(new Reader(inputFile));
+        Reader reader = new Reader();
+        String resultMessage = reader.resultWriter(inputFile);
+        JTextArea result = new JTextArea(resultMessage);
+        frame.add(result);
+        frame.setVisible(true);
+    }
+
+}
