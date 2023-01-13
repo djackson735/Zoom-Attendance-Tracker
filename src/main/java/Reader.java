@@ -26,6 +26,19 @@ public class Reader {
         add("Absent Student");
     }};
 
+    // Create BufferedReader to scan the text file & populate an ArrayList with those names
+    public ArrayList<String> populateAttendanceList(File attendanceFile) throws IOException {
+        ArrayList<String> fullAttendanceList = new ArrayList<>();
+        String line = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(attendanceFile))) {
+            while ((line = br.readLine()) != null) {
+                fullAttendanceList.add(line);
+            }
+        }
+        return fullAttendanceList;
+    }
+
+
     // Writes user-friendly string to display
     // TODO: Increase font size globally, auto wrap, auto center in screen
     public String resultWriter(File inputFile) throws IOException {
