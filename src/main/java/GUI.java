@@ -7,10 +7,16 @@ import java.io.IOException;
 
 public class GUI {
 
+    private Font courier = new Font("Courier", Font.PLAIN, 25);
+
     public GUI() {
         JFrame frame = new JFrame();
-        frame.setSize(500,300);
-        JLabel label = new JLabel("Please select the CSV file you wish to scan.");
+        frame.setSize(800,500);
+        frame.setLocationRelativeTo(null);
+        frame.setFont(courier);
+
+        JLabel label = new JLabel("Please select the CSV file you wish to scan");
+        label.setFont(courier);
 
         JButton fileButton = new JButton("Select file");
         fileButton.addActionListener(e -> {
@@ -43,7 +49,8 @@ public class GUI {
     public void getResultMessage(File inputFile) throws IOException {
         JFrame frame = new JFrame("Attendance Results");
         frame.setSize(500, 200);
-//        String resultMessage = String.valueOf(new Reader(inputFile));
+        frame.setLocationRelativeTo(null);
+        frame.setFont(courier);
         Reader reader = new Reader();
         String resultMessage = reader.resultWriter(inputFile);
         JTextArea result = new JTextArea(resultMessage);

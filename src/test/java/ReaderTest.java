@@ -55,6 +55,6 @@ public class ReaderTest{
         Map<String, LocalTime> result = new HashMap<>(sut.readSubmittedReport(testSubmittedReport));
         Assert.assertEquals(testAttendanceMap, result);
     }
-    
+
 
 }
