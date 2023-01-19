@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class GUI {
-
+    private File classFile;
     private Font courier = new Font("Courier", Font.PLAIN, 25);
 
     public GUI() {
@@ -15,6 +15,7 @@ public class GUI {
         frame.setLocationRelativeTo(null);
         frame.setFont(courier);
 
+        // TODO: This label should change depending on if a classfile exists already. Another button should exist to swap that classfile out if desired
         JLabel label = new JLabel("Please select the CSV file you wish to scan");
         label.setFont(courier);
 
@@ -44,6 +45,15 @@ public class GUI {
         frame.setTitle("TE Attendance");
         frame.pack();
         frame.setVisible(true);
+    }
+
+    // True if file exists
+    public boolean fileCheck() {
+        String filePath = "src/main/resources/Class-List.csv";
+        if (new File(filePath).exists()) {
+            classFile = new File(filePath);
+            return true;
+        } else return false;
     }
 
     public void getResultMessage(File inputFile) throws IOException {

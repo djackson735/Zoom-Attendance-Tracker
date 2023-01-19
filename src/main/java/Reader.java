@@ -12,20 +12,21 @@ import java.util.Map;
 
 public class Reader {
 
-    //TODO Allow user to input a file once, setting that as a new Class List. Include a button to swap it out.
     private final File CLASS_LIST = new File("src/main/resources/Class-List.csv");
     final static DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
     final static LocalTime TARDY_LIMIT = LocalTime.parse("08:15:00");
     final static LocalTime ABSENT_LIMIT = LocalTime.parse("09:00:00");
-//    final List<String> MASTER_ATTENDANCE_LIST = new ArrayList<>() {{
-//        add("Sample Student");
-//        add("Sample Student");
-//        add("Sample Student");
-//        add("Sample Student");
-//        add("Sample Student");
-//        add("Sample Student");
-//        add("Absent Student");
-//    }};
+
+    //TODO Allow user to input a file once, setting that as a new Class List. Include a button to swap it out.
+    public void fileCheck() {
+        String filePath = "src/main/resources/Class-List.csv";
+        File classListFile;
+        if (new File(filePath).exists()) {
+            classListFile = new File(filePath);
+        } else {
+
+        }
+    }
 
     // Create BufferedReader to scan the text file & populate an ArrayList with those names
     public ArrayList<String> populateAttendanceList(File classList) throws IOException {
