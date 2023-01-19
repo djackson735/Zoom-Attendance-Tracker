@@ -1,0 +1,5 @@
+Name (Original Name),User Email,Join Time,Leave Time,Duration (Minutes),Guest,In Waiting Room
+AbsentlyLate Student,absent@email.com,12/14/2022 09:00:00 AM,12/14/2022 09:30:00 AM,90,No,No
+Tardy Student,tardy@email.com,12/14/2022 08:30:00 AM,12/14/2022 09:30:00 AM,90,No,No
+Present Student,tardy@email.com,12/14/2022 08:00:00 AM,12/14/2022 09:30:00 AM,90,No,Yes
+New StudentOnTime,new@email.com,12/14/2022 08:00:00 AM,12/14/2022 09:30:00 AM,90,No,Yes
