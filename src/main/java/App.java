@@ -1,5 +1,15 @@
-public class App {
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+import static javafx.application.Application.launch;
+
+public class App extends javafx.application.Application{
     public static void main(String[] args) {
-    new GUI();
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
     }
 }
